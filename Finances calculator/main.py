@@ -8,12 +8,12 @@ def calculate_finances(monthly_income: float, tax_rate: float, expenses: list[fl
 
     # Printing statements are here:
     print('*' * 20)
-    print(f'* Monthly Income: {monthly_income} {currency}')
-    print(f'* Monthly Tax Rate: {tax_rate}%')
-    print(f'* Monthly Net Income: {monthly_net} {currency}')
-    print(f'* Monthly Income after expenses: {monthly_saved} {currency} \n')
-    print(f'* Yearly Income: {yearly_income} {currency}')
-    print(f'* Yearly Net Income: {yearly_net} {currency}')
+    print('* Monthly Income: {} {}'.format(monthly_income,currency))
+    print('* Monthly Tax Rate: {}%'.format(tax_rate))
+    print('* Monthly Net Income: {} {}'.format(monthly_net,currency))
+    print('* Monthly Income after expenses: {} {} \n'.format(monthly_saved,currency))
+    print('* Yearly Income: {} {}'.format(yearly_income,currency))
+    print('* Yearly Net Income: {} {}'.format(yearly_net,currency))
     print('*' * 20)
 
 
@@ -42,9 +42,9 @@ def main() -> None:
     currency: str = input('Enter your currency: ')
     expenses: list[float] = []
     for i in range(int(input('Enter number of expenses for this month: '))):
-        expense = input(f'Expense {i+1}: ')
+        expense = input('Expense {}: '.format(i+1))
         while not check_user_input(expense, 'float'):
-            expense = input(f'Please enter a valid number for Expense {i+1}: ')
+            expense = input('Please enter a valid number for Expense {}: '.format(i+1))
         expenses.append(float(expense))
     calculate_finances(monthly_income=float(monthly_inc), tax_rate=float(tax_rate), currency=currency, expenses=expenses)
 
